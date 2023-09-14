@@ -1,8 +1,9 @@
 # Bank_Loan_Case_Study
 
-- [Project Description](#header-name)
+- [Project Description](#project-Description)
 - [Business Understanding](#business-understanding)
 - [Data Understanding](#data-understanding)
+- [Approach & Tech Stack Used](approach-&-tech-stack-used)
 
 ### Project Description
 This case study aims to give you an idea of applying EDA in a real business scenario. In
