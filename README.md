@@ -10,6 +10,7 @@ this case study, apart from applying the techniques that I have learnt in the ED
 module, I would like to develop a basic understanding of risk analytics in banking and
 financial services and understand how data is used to minimize the risk of losing money
 while lending to customers.
+
 ### Business Understanding{# business-understanding}
 The loan providing companies find it hard to give loans to the people due to their
 insufficient or non-existent credit history. Because of that, some consumers use it as their
