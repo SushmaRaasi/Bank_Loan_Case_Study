@@ -5,6 +5,8 @@
 [Business Understanding](businessunderstanding)
 
 [Scenarios](scenarios)
+
+[Data Understanding](DataUnderstanding)
 ### Project Description: 
 This case study aims to give you an idea of applying EDA in a real business scenario. In
 this case study, apart from applying the techniques that I have learnt in the EDA
@@ -70,3 +72,26 @@ application.The data is about whether a client has payment difficulties.
 variables.
 
 - [Download Here](https://docs.google.com/spreadsheets/d/1W3AMPHCq5J2bEeWu-m7LYwrW4WPtj6QVfyXbG2ge_ZI/edit#gid=939882734)
+
+### Approach & Tech-Stack Used:
+- For this project I used Jupyter Notebook (Anaconda) to run my queries
+and charts.
+- The notebook extends the console-based approach to interactive
+computing in a qualitatively new direction, providing a web-based
+application suitable for capturing the whole computation process:
+  - developing,
+  - documenting and
+  - executing code,
+  - as well as communicating the results.
+- The Jupyter notebook combines two
+components:
+  - ***A web application:*** a browser-based tool for interactive authoring of
+documents which combine explanatory text, mathematics,
+computations and their rich media output.
+  - ***Notebook documents:*** a representation of all content visible in the
+web application, including inputs and outputs of the computations,
+explanatory text, mathematics, images, and rich media representations
+of objects.
+- This project helped me in understanding the tables at a much-detailed
+manner and helped to improve my strength in extracting data from
+tables in a more efficient manner.
