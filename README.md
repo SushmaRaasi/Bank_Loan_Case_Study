@@ -8,6 +8,7 @@
 - [Analytics and Insights](#analytics-and-insights)
   - [1) Handling Missing Data](#handling-missing-data)
   - [2) Identify Outliers](#identify-outliers)
+  - [3) Analyzing Data Imbalance](#analyzing-data-imbalance)
 
 ### Project Description
 This case study aims to give you an idea of applying EDA in a real business scenario. In
@@ -387,6 +388,27 @@ app_data['DAYS_EMPLOYED_RANGE'].value_counts()
 ```
 ![28](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/365f25e2-d9fe-4f6e-ae72-1e60027748f9)
 Here i am grouping the DAYS_EMPLOYED_Years to represent the values in better way for further investigation
+
+#### Analyzing Data Imbalance
+
+```
+plt.figure(figsize=(6,6))
+sns.countplot(data=app_data,x='TARGET')
+plt.show()
+```
+![29](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/ad60cf8f-cad8-4788-af64-e6738b12c54a)
+
+```
+class_counts=app_data['TARGET'].value_counts()
+print(class_counts)
+```
+![30](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/2838df88-a6f7-4789-8ff4-a1c63757378a)
+
+```
+Ratio_Imbalance = round(class_counts[1]/class_counts[0],2)
+print(Ratio_Imbalance)
+```
+***0.09***
 
 
 
