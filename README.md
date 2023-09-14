@@ -4,7 +4,7 @@
 - [Business Understanding](#business-understanding)
 - [Data Understanding](#data-understanding)
 - [Business Objectives](#business-objectives)
-- [Approach & Tech Stack Used](approach-&-tech-stack-used)
+- [Approach & Tech Stack Used](approach-and-tech-stack-used)
 
 ### Project Description
 This case study aims to give you an idea of applying EDA in a real business scenario. In
@@ -73,7 +73,7 @@ variables.
 
 - [Download Here](https://docs.google.com/spreadsheets/d/1W3AMPHCq5J2bEeWu-m7LYwrW4WPtj6QVfyXbG2ge_ZI/edit#gid=939882734)
 
-### Approach & Tech Stack Used
+### Approach and Tech Stack Used
 - For this project I used Jupyter Notebook (Anaconda) to run my queries
 and charts.
 - The notebook extends the console-based approach to interactive
