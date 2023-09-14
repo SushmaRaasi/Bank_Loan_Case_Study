@@ -5,6 +5,8 @@
 - [Data Understanding](#data-understanding)
 - [Business Objectives](#business-objectives)
 - [Approach and Tech Stack Used](#approach-and-tech-stack-used)
+- [Analytics and Insights](#analytics-and-insights)
+  - [1) Handling Missing Data](#handling-missing-data)
 
 ### Project Description
 This case study aims to give you an idea of applying EDA in a real business scenario. In
@@ -95,3 +97,8 @@ of objects.
 - This project helped me in understanding the tables at a much-detailed
 manner and helped to improve my strength in extracting data from
 tables in a more efficient manner.
+
+### Analytics and Insights
+
+#### Handling Missing Data
+It is essential to handle missing data effectively to ensure the accuracy of the analysis.
