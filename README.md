@@ -1,12 +1,12 @@
 # Bank_Loan_Case_Study
 
-[Project Description](ProjectDescription)
+[Project Description](#project-description)
 
-[Business Understanding](businessunderstanding)
+[Business Understanding](#business-understanding)
 
-[Scenarios](scenarios)
+[Scenarios](#scenarios)
 
-[Data Understanding](DataUnderstanding)
+[Data Understanding](#data-understanding)
 ### Project Description: 
 This case study aims to give you an idea of applying EDA in a real business scenario. In
 this case study, apart from applying the techniques that I have learnt in the EDA
