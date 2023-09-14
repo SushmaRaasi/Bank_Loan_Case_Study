@@ -298,6 +298,116 @@ outliers('CNT_CHILDREN')
 ```
 ![17](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/33a5018d-272c-4056-9d5d-6164c6fc895e)
 
+Here i am grouping CNT_CHILDREN Column to represent the values in better way for further investigation.
+```
+bins = [-1,2,5,float('inf')]
+bin_labels = ['0-2 Child','3-5 Child','6+ child']
+app_data['CHILDREN CATEGORY'] = pd.cut(app_data['CNT_CHILDREN'],bins = bins, labels =bin_labels)
+print(app_data['CHILDREN CATEGORY'].value_counts())
+```
+![18](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/3050da9d-06e0-4c69-a439-40587907c8a7)
+
+```
+ploting('AMT_INCOME_TOTAL')
+```
+![image](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/9c135b58-dd9b-4b9d-b509-48de54889034)
+
+```
+outliers('AMT_INCOME_TOTAL')
+```
+Here i am grouping the AMT_INCOME_TOTAL to represent the values in better way for further investigation
+
+```
+bins = [-1,100000,200000,300000,400000,500000,600000,700000,800000,900000,1000000,float('inf')]
+bins_labels = ['0-1L','1-2L','2-3L','3-4L','4-5L','5-6L','6-7L','7-8L','8-9L','9-10L','10L+']
+app_data['AMT_INCOME_TOTAL_RANGE']=pd.cut(app_data['AMT_INCOME_TOTAL'],bins = bins,labels =bins_labels)
+print(app_data['AMT_INCOME_TOTAL_RANGE'].value_counts())
+```
+![20](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/0c1c5043-3f51-485e-aeb9-d3f79069eb1f)
+
+```
+app_data['AMT_CREDIT_Lakhs'] = round(app_data['AMT_CREDIT']/100000,2)
+# print(app_data[['AMT_CREDIT_Lakhs','AMT_CREDIT']])
+
+ploting('AMT_CREDIT_Lakhs')
+outliers('AMT_CREDIT_Lakhs')
+```
+![21](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/cf048ac6-c8a3-4c07-8589-13ec6edc816e)
+
+Here i am grouping the AMT_CREDIT_Lakhs to represent the values in better way for further investigation
+```
+bins = [-1,5,10,15,20,25,30,35,40,float('inf')]
+bins_labels = ['0-5L','6-10L','11-15L','16-20L','21-25L','26-30L','31-35L','36-40L','40L+']
+app_data['AMT_CREDIT_RANGE']=pd.cut(app_data['AMT_CREDIT_Lakhs'],bins=bins, labels = bins_labels)
+print(app_data['AMT_CREDIT_RANGE'].value_counts().sort_values(ascending=True))
+```
+![22](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/1a5465b5-fe1c-471b-a8a3-c55b6e48b61e)
+
+```
+app_data['AMT_GOODS_PRICE_Lakhs']=round(app_data['AMT_GOODS_PRICE']/100000,2)
+ploting('AMT_GOODS_PRICE_Lakhs')
+```
+![23](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/abcfbfc0-12d1-4d1a-b6d3-178de9d6ef3f)
+
+```
+outliers('AMT_GOODS_PRICE_Lakhs')
+bins = [-1,5,10,15,20,25,30,35,40,float('inf')]
+bins_labels = ['0-5L','6-10L','11-15L','16-20L','21-25L','26-30L','31-35L','36-40L','40L+']
+app_data['AMT_GOODS_PRICE_RANGE']=pd.cut(app_data['AMT_GOODS_PRICE_Lakhs'],bins=bins, labels = bins_labels)
+print(app_data['AMT_GOODS_PRICE_RANGE'].value_counts().sort_values(ascending=True))
+```
+![24](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/a16c6f6c-8619-4500-b79d-66ebc78ec0eb)
+
+```
+ploting('DAYS_BIRTH_Years')
+```
+![25](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/e44a25f4-498b-491b-8d15-6d871d9df95d)
+
+Based on the above box plot i could see there is no outliers but the age values can t be in decimal format hence changing to ranges bybdividede them in to categories
+
+```
+bins = [-1,10,20,30,40,50,60,70,float('inf')]
+bin_labels = ['0-10','11-20','21-30','31-40','41-50','51-60','61-70','70+']
+app_data['DAYS_BIRTH_Age_Range']=pd.cut(app_data['DAYS_BIRTH_Years'],bins=bins,labels=bin_labels)
+app_data['DAYS_BIRTH_Age_Range'].value_counts()
+```
+![26](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/1d214fd9-cd03-44ec-813e-7a1cb9e6585d)
+
+```
+ploting('DAYS_EMPLOYED_Years')
+```
+![27](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/c32f70f9-4a50-4ba1-8f67-ba8c1b59fe3a)
+
+```
+outliers('DAYS_EMPLOYED_Years')
+bins = [-1,10,20,30,40,50,60,70,80,90,100,500,1000,float('inf')]
+bin_labels = ['0-10Y','11-20Y','21-30Y','31-40Y','41-50Y','51-60Y','61-70Y','71-80Y','81-90Y','91-100Y','101-500Y','501-1000','1000+']
+app_data['DAYS_EMPLOYED_RANGE']= pd.cut(app_data['DAYS_EMPLOYED_Years'],bins=bins,labels=bin_labels)
+app_data['DAYS_EMPLOYED_RANGE'].value_counts()
+```
+![28](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/365f25e2-d9fe-4f6e-ae72-1e60027748f9)
+Here i am grouping the DAYS_EMPLOYED_Years to represent the values in better way for further investigation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
