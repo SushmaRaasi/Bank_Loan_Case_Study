@@ -7,6 +7,7 @@
 - [Approach and Tech Stack Used](#approach-and-tech-stack-used)
 - [Analytics and Insights](#analytics-and-insights)
   - [1) Handling Missing Data](#handling-missing-data)
+  - [2) Identify Outliers](#identify-outliers)
 
 ### Project Description
 This case study aims to give you an idea of applying EDA in a real business scenario. In
@@ -250,15 +251,52 @@ app_data[rem_columns].isna().sum()
 There are few columns like *DAYS_BIRTH,DAYS_EMPLOYED,DAYS_REGISTRATION,DAYS_ID_PUBLISH* are in days with -ve values.
 To represent these columns in better way changing them to +ve values and to years which will very helpful in further analysis.
 
-Created a function for those 4 columns
+Created a function for those 4 columns 
 ```
 def abs_round_days(column):
     return round(abs(app_data[column])/365,2)
+
+app_data['DAYS_BIRTH_Years']=abs_round_days('DAYS_BIRTH')
+app_data['DAYS_EMPLOYED_Years']=abs_round_days('DAYS_EMPLOYED')
+app_data['DAYS_REGISTRATION_Years']=abs_round_days('DAYS_REGISTRATION')
+app_data['DAYS_ID_PUBLISH_Years']=abs_round_days('DAYS_ID_PUBLISH')
 ```
 
+Finding Credit Ratio Column
+```
+app_data['credit_ratio']= round((app_data['AMT_CREDIT']/app_data['AMT_INCOME_TOTAL']),2)
+```
+#### Identify Outliers
 
+```
+numerical_columns = app_data.select_dtypes(include=[np.number]).columns
+print(numerical_columns)
+```
+![15](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/09f51fcb-2f9a-4a9d-a7b3-516019db2ea3)
 
+```
+def ploting(column_name):
+    plt.figure(figsize=(12,6))
+    sns.boxplot(data=app_data[column_name],orient='h')
+    return plt.show()
 
+ploting('CNT_CHILDREN')
+```
+![16](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/ac4137ac-3241-49f2-81cc-def4216ce3d0)
+
+```
+def outliers(column_name):
+    Q1= app_data[column_name].quantile(0.25)
+    Q3 = app_data[column_name].quantile(0.75)
+    IQR = Q3-Q1
+    UT = Q3+(1.5*IQR)
+    LT=Q1-(1.5*IQR)
+    Outliers = app_data[(app_data[column_name]<LT) | (app_data[column_name]>UT)]
+    return (Outliers[column_name].value_counts())
+
+outliers('CNT_CHILDREN')
+```
+![17](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/33a5018d-272c-4056-9d5d-6164c6fc895e)
 
 
 
