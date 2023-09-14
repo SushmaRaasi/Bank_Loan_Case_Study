@@ -3,6 +3,7 @@
 - [Project Description](#project-Description)
 - [Business Understanding](#business-understanding)
 - [Data Understanding](#data-understanding)
+- [Business Objectives](#business-objectives)
 - [Approach & Tech Stack Used](approach-&-tech-stack-used)
 
 ### Project Description
@@ -46,7 +47,7 @@ the client he received worse pricing which he did not want.
 requirements etc.).
 - Unused Offer: Loan has been cancelled by the client but on different stages of the
 process.
-### Business Objectives:
+### Business Objectives
 It aims to identify patterns which indicate if a client has difficulty paying their
 installments which may be used for taking actions such as denying the loan, reducing the
 amount of loan, lending (to risky applicants) at a higher interest rate, etc. This will ensure
@@ -72,7 +73,7 @@ variables.
 
 - [Download Here](https://docs.google.com/spreadsheets/d/1W3AMPHCq5J2bEeWu-m7LYwrW4WPtj6QVfyXbG2ge_ZI/edit#gid=939882734)
 
-### Approach & Tech Stack Used:
+### Approach & Tech Stack Used
 - For this project I used Jupyter Notebook (Anaconda) to run my queries
 and charts.
 - The notebook extends the console-based approach to interactive
