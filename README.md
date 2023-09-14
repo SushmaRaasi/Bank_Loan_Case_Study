@@ -72,7 +72,7 @@ variables.
 
 - [Download Here](https://docs.google.com/spreadsheets/d/1W3AMPHCq5J2bEeWu-m7LYwrW4WPtj6QVfyXbG2ge_ZI/edit#gid=939882734)
 
-### Approach & Tech-Stack Used:
+### Approach & Tech Stack Used:
 - For this project I used Jupyter Notebook (Anaconda) to run my queries
 and charts.
 - The notebook extends the console-based approach to interactive
