@@ -196,6 +196,12 @@ for column in columns_lt_threshold_1:
 
 app_data[columns_lt_threshold_1].isna().sum()
 ```
+Rest of the columns
+```
+columns_lt_threshold_2 = ['NAME_TYPE_SUITE', 'OBS_30_CNT_SOCIAL_CIRCLE', 'DEF_30_CNT_SOCIAL_CIRCLE', 'OBS_60_CNT_SOCIAL_CIRCLE', 'DEF_60_CNT_SOCIAL_CIRCLE', 'EXT_SOURCE_2', 'AMT_GOODS_PRICE', 'AMT_ANNUITY', 'CNT_FAM_MEMBERS', 'DAYS_LAST_PHONE_CHANGE']
 
+app_data[columns_lt_threshold_2].isna().sum()
+```
+![10](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/9db6ded3-5e3b-4ab7-90d5-4e28eff33e3d)
 
 
