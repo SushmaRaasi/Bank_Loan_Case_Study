@@ -4,13 +4,13 @@
 - [Business Understanding](#business-understanding)
 - [Data Understanding](#data-understanding)
 
-### Project Description: {#project-description}
+### Project Description{#project-description}
 This case study aims to give you an idea of applying EDA in a real business scenario. In
 this case study, apart from applying the techniques that I have learnt in the EDA
 module, I would like to develop a basic understanding of risk analytics in banking and
 financial services and understand how data is used to minimize the risk of losing money
 while lending to customers.
-### Business Understanding {#business-understanding}
+### Business Understanding{#business-understanding}
 The loan providing companies find it hard to give loans to the people due to their
 insufficient or non-existent credit history. Because of that, some consumers use it as their
 advantage by becoming a defaulter. Suppose you work for a consumer finance company
@@ -59,7 +59,7 @@ To develop your understanding of the domain, you are advised to independently re
 a little about risk analytics – understanding the types of variables and their significance
 should be enough).
 
-### Data Understanding {#data-understanding}
+### Data Understanding{#data-understanding}
 1. application_data.csv: contains all the information of the client at the time of
 application.The data is about whether a client has payment difficulties.
 
