@@ -102,3 +102,74 @@ tables in a more efficient manner.
 
 #### Handling Missing Data
 It is essential to handle missing data effectively to ensure the accuracy of the analysis.
+Importing the necessary libraries for doing analysis.
+
+- ***pandas** is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
+built on top of the Python programming language.*
+- ***Matplotlib** is a comprehensive library for creating static, animated, and interactive visualizations in Python.*
+- ***Seaborn** is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.*
+    
+```
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+```
+Loading the dataset
+```
+application_data = pd.read_csv('application_data.csv')
+```
+keeping the original dataset safe and doing all the analysis in **app_data**
+```
+app_data = pd.read_csv('application_data.csv')
+```
+setting the display option to display all rows and columns for our convinience
+```
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
+```
+Finding the count of Missing number of rows from every Column and sorting the result in ascending order based on the MissingCount
+```
+missing_count = app_data.isna().sum().sort_values(ascending = False)
+print(missing_count)
+```
+
+![4](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/90aa6173-fcb0-4a65-b43d-5ba3171de441)
+
+```
+plt.figure(figsize=(10,60))
+missing_count.sort_values(ascending=True).plot(kind='barh', color = 'skyblue')
+plt.show()
+```
+
+![5](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/eba5b383-b3b4-44f6-8327-b2b1ecbbd366)
+
+```
+Rounding the Missing Values to 2 decimals using 
+missing_count_per = round(((app_data.isna().sum()/len(app_data))*100).sort_values(ascending=False),2)
+print(missing_count_per)
+```
+![6](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/1ee33a81-3d70-4042-b1f9-08bb55a367aa)
+```
+plt.figure(figsize=(10,60))
+ax = missing_count_per.plot(kind='barh', color = 'blue')
+
+ax.invert_yaxis()
+for i,v in enumerate(missing_count_per):
+    ax.text(v,i,str(v),ha='right',va='center',fontsize=10,color='white',fontweight='bold')
+plt.show()
+```
+![7](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/c1836346-60c4-45a3-b2b8-5a42b63b326b)
+
+Calculating the Threshold
+```
+threshold = (50/100) * len(app_data)
+print(round(threshold))
+```
+
+
+
+
+
+
+
