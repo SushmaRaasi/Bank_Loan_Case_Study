@@ -4,7 +4,7 @@
 - [Business Understanding](#business-understanding)
 - [Data Understanding](#data-understanding)
 - [Business Objectives](#business-objectives)
-- [Approach and Tech Stack Used](approach-and-tech-stack-used)
+- [Approach and Tech Stack Used](#approach-and-tech-stack-used)
 
 ### Project Description
 This case study aims to give you an idea of applying EDA in a real business scenario. In
