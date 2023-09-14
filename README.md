@@ -203,5 +203,74 @@ columns_lt_threshold_2 = ['NAME_TYPE_SUITE', 'OBS_30_CNT_SOCIAL_CIRCLE', 'DEF_30
 app_data[columns_lt_threshold_2].isna().sum()
 ```
 ![10](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/9db6ded3-5e3b-4ab7-90d5-4e28eff33e3d)
+For *NAME_TYPE_SUITE* column replacing null values with Unaccompanied
+```
+app_data['NAME_TYPE_SUITE'].value_counts()
+```
+![11](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/e48364fc-bd63-4361-9d64-3884f0afef65)
+```
+app_data['NAME_TYPE_SUITE'].fillna("Unaccompanied",inplace=True)
+app_data['NAME_TYPE_SUITE'].isna().sum()
+```
+0
+*DEF_30_CNT_SOCIAL_CIRCLE,OBS_60_CNT_SOCIAL_CIRCLE,DEF_60_CNT_SOCIAL_CIRCLE,OBS_30_CNT_SOCIAL_CIRCLE*
+```
+DEF_30_median = app_data['DEF_30_CNT_SOCIAL_CIRCLE'].median()
+OBS_60_median = app_data['OBS_60_CNT_SOCIAL_CIRCLE'].median()
+DEF_60_median = app_data['DEF_60_CNT_SOCIAL_CIRCLE'].median()
+OBS_30_median = app_data['OBS_30_CNT_SOCIAL_CIRCLE'].median()
+
+print(f'DEF_30_CNT_SOCIAL_CIRCLE --> ',DEF_30_median)
+print(f'OBS_60_CNT_SOCIAL_CIRCLE --> ',OBS_60_median)
+print(f'DEF_60_CNT_SOCIAL_CIRCLE --> ',DEF_60_median)
+print(f'OBS_30_CNT_SOCIAL_CIRCLE --> ',OBS_30_median)
+```
+![12](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/3478b44c-fab4-419c-98c5-2e73e709e405)
+```
+Social_circle_columns = ['DEF_30_CNT_SOCIAL_CIRCLE','OBS_60_CNT_SOCIAL_CIRCLE','DEF_60_CNT_SOCIAL_CIRCLE','OBS_30_CNT_SOCIAL_CIRCLE']
+
+for column in Social_circle_columns:
+    app_data[column].fillna(0,inplace=True)
+
+app_data[Social_circle_columns].isna().sum()
+```
+![13](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/07e9072d-e6be-477d-a3eb-b2963ec39ce1)
+
+```
+rem_columns = ['EXT_SOURCE_2', 'AMT_GOODS_PRICE', 'AMT_ANNUITY', 'CNT_FAM_MEMBERS', 'DAYS_LAST_PHONE_CHANGE']
+
+for column in rem_columns:
+    med=round(app_data[column].median(),2)
+    app_data[column].fillna(med,inplace=True)
+    
+app_data[rem_columns].isna().sum()
+```
+![14](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/0beaa30c-6d20-4411-8388-d0e3331432d1)
+
+There are few columns like *DAYS_BIRTH,DAYS_EMPLOYED,DAYS_REGISTRATION,DAYS_ID_PUBLISH* are in days with -ve values.
+To represent these columns in better way changing them to +ve values and to years which will very helpful in further analysis.
+
+Created a function for those 4 columns
+```
+def abs_round_days(column):
+    return round(abs(app_data[column])/365,2)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
