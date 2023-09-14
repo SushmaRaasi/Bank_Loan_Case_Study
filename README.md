@@ -145,7 +145,7 @@ plt.show()
 ![5](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/eba5b383-b3b4-44f6-8327-b2b1ecbbd366)
 
 ```
-Rounding the Missing Values to 2 decimals using 
+Rounding the Missing Values to 2 decimals and converting the count to Percentages for our convinience 
 missing_count_per = round(((app_data.isna().sum()/len(app_data))*100).sort_values(ascending=False),2)
 print(missing_count_per)
 ```
@@ -166,8 +166,18 @@ Calculating the Threshold
 threshold = (50/100) * len(app_data)
 print(round(threshold))
 ```
+If the column Missing Count is greater than the Threshold Imputing those with ***Missing*** Value 
+And finally checking is the missing count is 0 or not 
+```
+columns_grt_threshold = missing_count[missing_count>threshold].index.tolist()
+print(columns_grt_threshold)
 
+for column in columns_grt_threshold:
+    app_data[column].fillna("Missing",inplace=True)
 
+app_data[columns_grt_threshold].isna().sum()
+```
+![8](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/5f2cc801-6e66-4b38-879b-119a9854febf)
 
 
 
