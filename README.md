@@ -409,7 +409,11 @@ Ratio_Imbalance = round(class_counts[1]/class_counts[0],2)
 print(Ratio_Imbalance)
 ```
 ***0.09***
+**Conclusion**
+*A ratio of 0.09 means that for every 100 loan applications:*
 
+About 91 of them belong to Category 0 (people with no difficulties).
+Only 9 of them belong to Category 1 (people with repayment difficulties).
 
 
 
