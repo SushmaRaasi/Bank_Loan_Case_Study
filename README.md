@@ -179,7 +179,23 @@ app_data[columns_grt_threshold].isna().sum()
 ```
 ![8](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/5f2cc801-6e66-4b38-879b-119a9854febf)
 
+Checking the columns where the Missing count is lessthan threshold and not equall to 0
+```
+columns_lt_threshold = missing_count[(missing_count<threshold) & (missing_count != 0)].index.tolist()
+print(columns_lt_threshold)
 
+app_data[columns_lt_threshold].isna().sum()
+```
+![9](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/2e8629c1-67f9-4b46-a8e8-0da14996d9a9)
+Among those columns which i mentioned aboove making few columns Missing values to ***MIssing*** as they are required for analysis and not droping those may be they required for analysis further.
+```
+columns_lt_threshold_1 = ['FLOORSMAX_MODE', 'FLOORSMAX_MEDI', 'FLOORSMAX_AVG', 'YEARS_BEGINEXPLUATATION_MODE', 'YEARS_BEGINEXPLUATATION_MEDI', 'YEARS_BEGINEXPLUATATION_AVG', 'TOTALAREA_MODE', 'EMERGENCYSTATE_MODE', 'OCCUPATION_TYPE', 'EXT_SOURCE_3', 'AMT_REQ_CREDIT_BUREAU_HOUR', 'AMT_REQ_CREDIT_BUREAU_DAY', 'AMT_REQ_CREDIT_BUREAU_WEEK', 'AMT_REQ_CREDIT_BUREAU_MON', 'AMT_REQ_CREDIT_BUREAU_QRT', 'AMT_REQ_CREDIT_BUREAU_YEAR']
+
+for column in columns_lt_threshold_1:
+    app_data[column].fillna("Missing",inplace = True)
+
+app_data[columns_lt_threshold_1].isna().sum()
+```
 
 
 
