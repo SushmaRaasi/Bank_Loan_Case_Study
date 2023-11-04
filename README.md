@@ -136,7 +136,8 @@ missing_count = app_data.isna().sum().sort_values(ascending = False)
 print(missing_count)
 ```
 
-1 
+![1](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/232217c8-c6ee-495a-9a93-111466e1d371)
+
 
 ```
 plt.figure(figsize=(10,60))
@@ -144,7 +145,8 @@ missing_count.sort_values(ascending=True).plot(kind='barh', color = 'skyblue')
 plt.show()
 ```
 
-2
+![2](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/4152243a-6e44-4a11-996e-9cdc77bb839a)
+
 
 <br>
 Rounding the Missing Values to 2 decimals and converting the count to Percentages for our convinience 
@@ -153,7 +155,8 @@ Rounding the Missing Values to 2 decimals and converting the count to Percentage
 missing_count_per = round(((app_data.isna().sum()/len(app_data))*100).sort_values(ascending=False),2)
 print(missing_count_per)
 ```
-3
+
+![3](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/726eb2b3-a20e-4c06-ae5d-c1d1d2783ca4)
 
 ```
 plt.figure(figsize=(10,60))
@@ -164,7 +167,8 @@ for i,v in enumerate(missing_count_per):
     ax.text(v,i,str(v),ha='right',va='center',fontsize=10,color='white',fontweight='bold')
 plt.show()
 ```
-4
+![4](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/4501a82d-56db-4e3d-b489-e45df7cfaba9)
+
 
 Calculating the Threshold
 ```
@@ -182,16 +186,19 @@ for column in columns_grt_threshold:
 
 app_data[columns_grt_threshold].isna().sum()
 ```
-5
+![5](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/9dd2c6b3-be0f-4ffe-95d2-5ab0f93ea915)
+
 <br>
 Checking the columns where the Missing count is lessthan threshold and not equall to 0
+
 ```
 columns_lt_threshold = missing_count[(missing_count<threshold) & (missing_count != 0)].index.tolist()
 print(columns_lt_threshold)
 
 app_data[columns_lt_threshold].isna().sum()
 ```
-6
+![6](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/47fcb82d-b3a8-40ce-83f9-86f2b97fb224)
+
 
 Among those columns which i mentioned aboove making few columns Missing values to ***MIssing*** as they are required for analysis and not droping those may be they required for analysis further.
 
@@ -209,12 +216,14 @@ columns_lt_threshold_2 = ['NAME_TYPE_SUITE', 'OBS_30_CNT_SOCIAL_CIRCLE', 'DEF_30
 
 app_data[columns_lt_threshold_2].isna().sum()
 ```
-7
+![7](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/566fa7d9-d97a-420a-8bb2-0db1c02cbfbb)
+
 For *NAME_TYPE_SUITE* column replacing null values with Unaccompanied
 ```
 app_data['NAME_TYPE_SUITE'].value_counts()
 ```
-8
+![8](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/6bb38f90-7a89-468f-87c6-6b34a93035f3)
+
 ```
 app_data['NAME_TYPE_SUITE'].fillna("Unaccompanied",inplace=True)
 app_data['NAME_TYPE_SUITE'].isna().sum()
@@ -232,7 +241,8 @@ print(f'OBS_60_CNT_SOCIAL_CIRCLE --> ',OBS_60_median)
 print(f'DEF_60_CNT_SOCIAL_CIRCLE --> ',DEF_60_median)
 print(f'OBS_30_CNT_SOCIAL_CIRCLE --> ',OBS_30_median)
 ```
-9
+![9](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/6e8525c3-42b7-4c71-846d-e7bdfeeea05f)
+
 
 ```
 Social_circle_columns = ['DEF_30_CNT_SOCIAL_CIRCLE','OBS_60_CNT_SOCIAL_CIRCLE','DEF_60_CNT_SOCIAL_CIRCLE','OBS_30_CNT_SOCIAL_CIRCLE']
@@ -242,7 +252,8 @@ for column in Social_circle_columns:
 
 app_data[Social_circle_columns].isna().sum()
 ```
-10
+![10](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/c62f684b-aff7-4500-94ce-379ccb78721d)
+
 
 ```
 rem_columns = ['EXT_SOURCE_2', 'AMT_GOODS_PRICE', 'AMT_ANNUITY', 'CNT_FAM_MEMBERS', 'DAYS_LAST_PHONE_CHANGE']
@@ -253,7 +264,8 @@ for column in rem_columns:
     
 app_data[rem_columns].isna().sum()
 ```
-11
+![11](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/7938245c-34ab-46de-821e-5720f3f2e529)
+
 
 There are few columns like *DAYS_BIRTH,DAYS_EMPLOYED,DAYS_REGISTRATION,DAYS_ID_PUBLISH* are in days with -ve values.
 To represent these columns in better way changing them to +ve values and to years which will very helpful in further analysis.
@@ -284,7 +296,8 @@ def ploting(column_name):
 ploting('CNT_CHILDREN')
 
 ```
-12
+![12](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/55f45ac7-b5d6-498d-a939-b5aa7a496a4d)
+
 
 ```
 def outliers(column_name):
@@ -298,7 +311,8 @@ def outliers(column_name):
 
 outliers('CNT_CHILDREN')
 ```
-13
+![13](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/3630db68-925b-44f5-bfdf-cbc757e6eff3)
+
 
 Here i am grouping CNT_CHILDREN Column to represent the values in better way for further investigation.
 ```
@@ -307,12 +321,14 @@ bin_labels = ['0-2 Child','3-5 Child','6+ child']
 app_data['CHILDREN CATEGORY'] = pd.cut(app_data['CNT_CHILDREN'],bins = bins, labels =bin_labels)
 print(app_data['CHILDREN CATEGORY'].value_counts())
 ```
-14
+![14](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/c1e8e897-7379-45f6-9950-124ec2accb95)
+
 
 ```
 ploting('AMT_INCOME_TOTAL')
 ```
-15
+![15](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/c4ba4439-b16f-4dfd-9384-8e9a0006f9b7)
+
 
 ```
 outliers('AMT_INCOME_TOTAL')
@@ -325,7 +341,8 @@ bins_labels = ['0-1L','1-2L','2-3L','3-4L','4-5L','5-6L','6-7L','7-8L','8-9L','9
 app_data['AMT_INCOME_TOTAL_RANGE']=pd.cut(app_data['AMT_INCOME_TOTAL'],bins = bins,labels =bins_labels)
 print(app_data['AMT_INCOME_TOTAL_RANGE'].value_counts())
 ```
-16
+![16](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/98ecdeba-d759-4b28-afaa-b950c9b54efd)
+
 
 ```
 app_data['AMT_CREDIT_Lakhs'] = round(app_data['AMT_CREDIT']/100000,2)
@@ -334,7 +351,8 @@ app_data['AMT_CREDIT_Lakhs'] = round(app_data['AMT_CREDIT']/100000,2)
 ploting('AMT_CREDIT_Lakhs')
 outliers('AMT_CREDIT_Lakhs')
 ```
-17
+![17](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/4abf3070-177e-4b35-b694-db9590f30dbc)
+
 
 Here i am grouping the AMT_CREDIT_Lakhs to represent the values in better way for further investigation
 ```
@@ -343,13 +361,15 @@ bins_labels = ['0-5L','6-10L','11-15L','16-20L','21-25L','26-30L','31-35L','36-4
 app_data['AMT_CREDIT_RANGE']=pd.cut(app_data['AMT_CREDIT_Lakhs'],bins=bins, labels = bins_labels)
 print(app_data['AMT_CREDIT_RANGE'].value_counts().sort_values(ascending=True))
 ```
-18
+![18](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/52ee1bba-6674-4204-a4ac-20498e1bb830)
+
 
 ```
 app_data['AMT_GOODS_PRICE_Lakhs']=round(app_data['AMT_GOODS_PRICE']/100000,2)
 ploting('AMT_GOODS_PRICE_Lakhs')
 ```
-19
+![19](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/bb5650f0-a9b3-4a5a-91e0-c63c8282abb7)
+
 
 ```
 outliers('AMT_GOODS_PRICE_Lakhs')
@@ -358,12 +378,14 @@ bins_labels = ['0-5L','6-10L','11-15L','16-20L','21-25L','26-30L','31-35L','36-4
 app_data['AMT_GOODS_PRICE_RANGE']=pd.cut(app_data['AMT_GOODS_PRICE_Lakhs'],bins=bins, labels = bins_labels)
 print(app_data['AMT_GOODS_PRICE_RANGE'].value_counts().sort_values(ascending=True))
 ```
-20
+![20](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/f4b503a2-5d9b-4223-a664-2ccfb7964b6b)
+
 
 ```
 ploting('DAYS_BIRTH_Years')
 ```
-21
+![21](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/3ca2015f-7fb4-45fd-b061-f3be4d0c796b)
+
 
 Based on the above box plot i could see there is no outliers but the age values can t be in decimal format hence changing to ranges bybdividede them in to categories
 
@@ -373,12 +395,13 @@ bin_labels = ['0-10','11-20','21-30','31-40','41-50','51-60','61-70','70+']
 app_data['DAYS_BIRTH_Age_Range']=pd.cut(app_data['DAYS_BIRTH_Years'],bins=bins,labels=bin_labels)
 app_data['DAYS_BIRTH_Age_Range'].value_counts()
 ```
-22
+![22](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/0ee6e79e-34c6-420a-9554-3cdbe9b3cc54)
+
 
 ```
 ploting('DAYS_EMPLOYED_Years')
 ```
-23
+![23](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/35992d65-dc02-43d8-9649-753eb47070ff)
 
 ```
 outliers('DAYS_EMPLOYED_Years')
@@ -387,7 +410,8 @@ bin_labels = ['0-10Y','11-20Y','21-30Y','31-40Y','41-50Y','51-60Y','61-70Y','71-
 app_data['DAYS_EMPLOYED_RANGE']= pd.cut(app_data['DAYS_EMPLOYED_Years'],bins=bins,labels=bin_labels)
 app_data['DAYS_EMPLOYED_RANGE'].value_counts()
 ```
-24
+![24](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/5414e67b-8666-45d7-aec5-eb08ae8412ac)
+
 
 Here i am grouping the DAYS_EMPLOYED_Years to represent the values in better way for further investigation
 
@@ -398,13 +422,15 @@ plt.figure(figsize=(6,6))
 sns.countplot(data=app_data,x='TARGET')
 plt.show()
 ```
-25
+![25](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/c36b4e52-e4e0-4ba9-9b9a-a4bfc0d69244)
+
 
 ```
 class_counts=app_data['TARGET'].value_counts()
 print(class_counts)
 ```
-26
+![26](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/732cf1da-5526-4921-b95a-562ff2631823)
+
 
 ```
 Ratio_Imbalance = round(class_counts[1]/class_counts[0],2)
@@ -435,9 +461,12 @@ for col in Numerical_columns:
     Summary = app_data[col].describe()
     print(round(Summary,2))
 ```
-27
-28
-29
+![27](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/9d9b27e4-fe56-41c9-a86f-d74aa77142cb)
+
+![28](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/104db0c2-072d-40f7-bdfe-fbdc0b81980e)
+
+![29](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/8caf4f20-eaca-4e3d-bd92-1a53ae0e7cd7)
+
 
 ```
 def Uni_Analysis_Numerical(dataframe,column):
@@ -455,13 +484,20 @@ def Uni_Analysis_Numerical(dataframe,column):
 for i in Numerical_columns:
            Uni_Analysis_Numerical(app_data,i) 
 ```
-30
-32
-32
-33
-34
-35
-36
+![30](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/6dffc9d7-b971-421a-aa97-e8ee655fd81d)
+
+![31](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/6ef451a3-be1f-4a43-a8c5-9dd387ace696)
+
+![32](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/2bd4d961-4a21-4365-a1f7-1b6a783edea8)
+
+![33](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/c8f0366c-b593-43fa-9ad8-9c1cb44767a8)
+
+![34](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/f9f32963-3da8-461b-a422-7c7809b7ebbd)
+
+![35](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/783dfe77-f1e2-461a-9c88-6f444aba5e18)
+
+![36](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/7e5fb55c-e7f5-4528-8468-ee17d3072845)
+
 
 ```
 def Uni_Analysis_Categorical(dataframe,column):
@@ -475,14 +511,20 @@ def Uni_Analysis_Categorical(dataframe,column):
 for i in Categorical_columns:
     Uni_Analysis_Categorical(app_data,i)
 ```
-37
-38
-39
-40
-41
-42
-43
-44
+
+![37](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/8a176ec1-f2af-49c0-a7cc-885679133256)
+![38](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/74525d46-07ca-49b9-86ad-868bd8066864)
+![39](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/12e4682a-0c10-4119-88e3-08e241f421c4)
+
+![40](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/09107cae-c3c0-4233-9627-13a42e40b297)
+
+![41](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/b2231777-73fa-4eed-99d8-1e1562b07774)
+![42](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/28955e18-2420-4c86-933a-7fc6ee4705ad)
+
+![43](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/cac307cc-ce22-4c5a-a8c3-19f418a925ef)
+![44](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/1c0d840a-5ec0-4560-a71a-0b981018ed81)
+
+
 
 ```
 sns.set(style='darkgrid')
@@ -490,7 +532,8 @@ plt.figure(figsize=(15,20))
 app_data['ORGANIZATION_TYPE'].value_counts().plot(kind='barh',width=1).set(title='ORGANIZATION_TYPE')
 plt.show
 ```
-45
+![45](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/35e85a13-adca-41df-9691-ffed1a1de72f)
+
 
 #### Segmented Analysis
 <ul>
@@ -498,7 +541,9 @@ plt.show
   ```
   app_data['CODE_GENDER'].value_counts()
 ```
-  46
+  
+  ![46](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/fd7261ea-0001-4c15-8c49-b84a1650f081)
+
   Stratify the Data
   
   ```
@@ -522,7 +567,9 @@ plt.title('Female')
 
 plt.show()
 ```
-47
+
+![47](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/62b403a9-8f03-4fb7-8208-6438a799dcc3)
+
 Calculating Descriptive Statistics
 
 ```
@@ -533,7 +580,8 @@ print(round(male_income_stats,2))
 print('Descriptive Statistics of Female')
 print(round(female_income_stats,2))
 ```
-48
+![48](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/5033d6fd-aa3d-4845-9db9-ed57c1b70e65)
+
 <ul>
   <li>Count: There are more female applicants (32,823) compared to male applicants (17,174).
 </li>
@@ -554,7 +602,8 @@ print(round(female_income_stats,2))
 ```
 app_data['NAME_CONTRACT_TYPE'].value_counts()
 ```
-49
+![49](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/4943e32f-f403-4096-b8ee-16ea447c3ed2)
+
 Stratify the Data
 
 ```
@@ -578,7 +627,8 @@ plt.title('Revolving loans')
 
 plt.show()
 ```
-50
+![50](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/9c1cd796-e7d3-4c16-ad55-13fd8a273ce4)
+
 Calculating Descriptive Statistics
 
 ```
@@ -589,7 +639,8 @@ print(round(CL_stats,2))
 print('Descriptive Statistics of Revolving loans')
 print(round(RL_stats,2))
 ```
-51
+![51](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/36d16fbb-0347-4bdd-bcfe-c6169c0fd539)
+
 <ul>
   <li>Count: There are more observations for "Cash loans" (45,276) compared to "Revolving loans" (4,723), indicating that "Cash loans" are more common in the dataset.
 </li>
@@ -617,7 +668,8 @@ This could involve creating contingency tables and performing chi-square tests t
 contigency_table = pd.crosstab(app_data['NAME_EDUCATION_TYPE'],app_data['NAME_FAMILY_STATUS'])
 contigency_table
 ```
-52
+![52](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/28e4d16b-1fc4-4f56-83ac-252ae4292844)
+
 
 ```
 chi2,p,_,_=chi2(contigency_table)
@@ -629,7 +681,8 @@ Interpreting the Results
   <li>here p value is very less than significance level (e.g., 0.05) hence i can conclude that there is a significant association between 'NAME_EDUCATION_TYPE' and 'NAME_FAMILY_STATUS.'</li>
   <li>The Chi-Square statistic is approximately 663.12. This statistic measures the strength of the association between the two categorical variables in your contingency table. Larger values indicate a stronger association.</li>
 </ul>
-54
+
+![54](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/a02b9dff-f46b-426b-930d-bac34da598da)
 
 <li>NAME_EDUCATION_TYPE and AMT_INCOME_TOTAL_RANGE</li>
 
@@ -639,7 +692,8 @@ numerical_variable = 'AMT_INCOME_TOTAL_Lakhs'
 education_types = app_data['NAME_EDUCATION_TYPE'].unique()
 education_types
 ```
-55
+![55](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/4c7f1f25-42c3-4855-8277-f17041133c36)
+
 
 ```
 grouped_data=app_data.groupby(by=categorical_variable).agg({numerical_variable:['mean', 'median', 'std']}).reset_index()
@@ -663,7 +717,8 @@ plt.title(f'Median {numerical_variable} by {categorical_variable}')
 
 plt.show()
 ```
-56
+![56](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/3227da20-cf6d-4c63-9c49-a9c2407b11ca)
+
 
 ```
 plt.figure(figsize=(6,3))
@@ -674,7 +729,8 @@ plt.ylabel(f'std {numerical_variable}')
 plt.title(f'std {numerical_variable} by {categorical_variable}')
 plt.show()
 ```
-57
+![57](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/1bec6612-62a9-4b56-9354-ab38035ccf5d)
+
 
 <li>AMT_CREDIT and AMT_ANNUITY</li>
 Numerical Vs Numerical
@@ -694,7 +750,8 @@ plt.title('AMT_CREDIT Vs AMT_ANNUITY')
 plt.grid(True)
 plt.show()
 ```
-58
+![58](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/065e2c46-5ca0-432b-8c90-9c54f12a8f86)
+
 <ul>
   <li>Positive Correlation: The positive sign of the correlation coefficient (0.77) indicates that as one variable, 'AMT_CREDIT,' increases, the other variable, 'AMT_ANNUITY,' tends to increase as well. In other words, there is a tendency for borrowers who take larger loans ('AMT_CREDIT') to have higher annuities ('AMT_ANNUITY').
 </li>
@@ -709,7 +766,8 @@ app_data.reset_index(drop=True,inplace=True)
 app_data.index = app_data.index+1
 app_data.head()
 ```
-59
+![59](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/bbdea3eb-b384-467f-bdb9-01f028133256)
+
 <li>DAYS_BIRTH and DAYS_EMPLOYED</li>
 
 ```
@@ -717,7 +775,8 @@ plt.figure(figsize=(12,6))
 plt.plot(app_data.index,app_data['DAYS_BIRTH_Age_Range'])
 plt.show()
 ```
-60
+![60](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/2c364452-c918-4e1a-bdd1-a9e44be1fcd2)
+
 
 ```
 # DAYS_EMPLOYED_Years
@@ -725,7 +784,8 @@ plt.figure(figsize=(12,6))
 plt.plot(app_data.index,app_data['DAYS_EMPLOYED_RANGE'])
 plt.show()
 ```
-61
+![61](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/05c9481b-7fbc-4865-a6c1-2ef9ec37d929)
+
 
 ```
 plt.figure(figsize=(8, 6))
@@ -735,7 +795,8 @@ plt.ylabel('DAYS_EMPLOYED_RANGE')
 plt.title('Scatter Plot: DAYS_BIRTH vs. DAYS_EMPLOYED')
 plt.show()
 ```
-62
+![62](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/5d9eb865-9e74-4827-b9c8-1db3bda19ef5)
+
 
 ```
 correlation_coefficient = app_data['DAYS_BIRTH_Years'].corr(app_data['DAYS_EMPLOYED_Years'])
@@ -765,14 +826,16 @@ val=list(app_data_Numerical['TARGET'] == 1)
 payment_difficulties_data = app_data_Numerical[val]
 payment_difficulties_data
 ```
-63
+![63](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/39db8d13-bcfe-44cf-be7d-2da036246045)
+
 
 ```
 mask = app_data_Numerical['TARGET'] == 0
 other_cases = app_data_Numerical[mask]
 other_cases
 ```
-64
+![64](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/075629b3-f7ad-4112-aaea-769356993617)
+
 <ol>
   <li></li>
   
@@ -781,7 +844,8 @@ t_stast,p_value = stats.ttest_ind(payment_difficulties_data['CNT_CHILDREN'],othe
 print(f't_stast is: ',t_stast)
 print(f'p_value is: ',p_value)
 ```
-65
+![65](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/4805aab3-861d-474a-b0cf-5ab818b70c32)
+
 <p>The small p-value (much less than the common significance level of 0.05) indicates that there is a statistically significant difference in the means of 'CNT_CHILDREN' between the group with payment difficulties (TARGET = 1) and the group without payment difficulties (TARGET = 0).
 
 </p>
@@ -792,7 +856,8 @@ t_stast,p_value = stats.ttest_ind(payment_difficulties_data['AMT_INCOME_TOTAL'],
 print(f't_stast is: ',t_stast)
 print(f'p_value is: ',p_value)
 ```
-66
+![66](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/2b29efd8-f722-4fa0-8d5f-d21c8f08dacd)
+
 <p>With a p-value of 0.464, it means that there is not enough statistical evidence to conclude that the difference in 'AMT_INCOME_TOTAL' between the payment difficulties group and the other cases group is statistically significant. In other words, the income levels of these two groups are not significantly different based on this test.</p>
 <li></li>
 
@@ -801,7 +866,8 @@ t_stast,p_value = stats.ttest_ind(payment_difficulties_data['AMT_CREDIT'],other_
 print(f't_stast is: ',t_stast)
 print(f'p_value is: ',p_value)
 ```
-67
+![67](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/7b989276-825f-49a6-b44e-ac0ab625bb24)
+
 <p>With a p-value that is extremely close to zero (4.586e-17), it indicates a very high level of statistical significance. Therefore, you can conclude that there is a significant difference in 'AMT_CREDIT' between the payment difficulties group and the other cases group. In practical terms, it means that the credit amounts between these two groups are significantly different based on this test.</p>
 <li></li>
 
@@ -810,7 +876,8 @@ t_stast,p_value = stats.ttest_ind(payment_difficulties_data['AMT_ANNUITY'],other
 print(f't_stast is: ',t_stast)
 print(f'p_value is: ',p_value)
 ```
-68
+![68](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/d2f35d67-4151-43fa-95f5-1c2730ea2a87)
+
 <p>The small p-value of 0.0012 indicates a statistically significant difference in 'AMT_ANNUITY' between the payment difficulties group and the other cases group. Therefore, you can conclude that 'AMT_ANNUITY' is likely to be a significant variable for distinguishing between cases with payment difficulties and other cases.</p>
 <li></li>
 
@@ -819,7 +886,8 @@ t_stast,p_value = stats.ttest_ind(payment_difficulties_data['AMT_GOODS_PRICE'],o
 print(f't_stast is: ',t_stast)
 print(f'p_value is: ',p_value)
 ```
-69
+![69](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/96c3c3ea-7d80-41df-96e3-8dace7cb35b9)
+
 </ol>
 
 ### Hypothetical Testing
@@ -834,7 +902,8 @@ Alternate Hypothesis (H1): Gender does influence payment behavior.
 contigency_table = pd.crosstab(app_data['CODE_GENDER'],app_data['TARGET'])
 contigency_table
 ```
-70
+![70](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/9dac8904-ce44-4494-a754-e554ce1ff424)
+
 
 ```
 chi2_stat,p_value,dof,expected = stats.chi2_contingency(contigency_table)
@@ -842,7 +911,8 @@ print(f'Chi-Squared Statistic: {round(chi2_stat,3)}')
 print(f'P Value: {p_value}')
 print(f'Degrees of Freedom: {dof}')
 ```
-71
+![71](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/e1e4cd00-ff92-4d34-b788-c0345475bb26)
+
 <ul>
   <li>Chi-Squared Statistic: 172.311 (rounded to three decimal places): This is the calculated chi-squared statistic. It measures the strength of the association between the variables in your contingency table.</li>
   <li>P Value: 3.8296283676391616e-38: This is the p-value obtained from the chi-squared test. It is an extremely small value, indicating that the association between the variables is highly statistically significant.</li>
@@ -866,14 +936,16 @@ income_labels=['Low Income','Moderate Income','High Income']
 app_data['Income_Category'] = pd.cut(app_data['AMT_INCOME_TOTAL'], bins=income_ranges, labels=income_labels)
 app_data['Income_Category'].value_counts()
 ```
-72
+![72](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/e288b607-f9eb-40ed-806e-7ae704f5e939)
+
 
 ```
 plt.figure(figsize=(12,6))
 sns.countplot(data = app_data,x='Income_Category',hue = 'TARGET')
 plt.show()
 ```
-73
+![73](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/959d3fc0-d785-4351-bd25-fc34d8df4ab9)
+
 
 ```
 contingency_table = pd.crosstab(app_data['Income_Category'],app_data['TARGET'])
@@ -881,7 +953,8 @@ chi2_stats,p_value,dof,expected = stats.chi2_contingency(contingency_table)
 print(chi2_stats)
 p_value
 ```
-74
+![74](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/64097ce9-4fae-4a7e-b3c6-382755ccee80)
+
 <ul>
   <li>The chi-squared statistic (0.523) is relatively small, indicating a weak association between income categories and the target variable (which may represent payment difficulty). 
 </li>
@@ -900,7 +973,8 @@ p_value
 ```
 app_data['DAYS_BIRTH_Age_Range'].unique()
 ```
-75
+![75](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/630fe713-2330-4ac6-8bba-19f2f8c07208)
+
 
 ```
 bins = [20,30,40,60,float('inf')]
@@ -908,14 +982,16 @@ labels = ['Young','Moderate','old','Old+']
 app_data['Age_Category'] = pd.cut(app_data['DAYS_BIRTH_Years'],bins = bins, labels = labels)
 app_data['Age_Category'].value_counts()
 ```
-76
+![76](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/4214b01e-6e4b-442f-9875-358b46f470d2)
+
 
 ```
 plt.figure(figsize=(12,4))
 sns.countplot(data=app_data,hue='TARGET',x='Age_Category')
 plt.show()
 ```
-77
+![77](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/fcd99f61-624e-4d52-b599-a1a19591f40c)
+
 
 ```
 young = list(range(20,30))
@@ -926,7 +1002,8 @@ f_statistic, p_value = stats.f_oneway(young,moderate,old,older)
 print(f_statistic)
 print(p_value)
 ```
-78
+![78](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/e1b1700d-f413-4589-8b9a-78b1278bdb40)
+
 Based on the results:
 <ul>
   <li>The F-statistic of 159.16 indicates that there are significant differences in the numerical data (possibly related to payment difficulty) among the age groups.
@@ -945,7 +1022,8 @@ Based on the results:
 ```
 app_data['AMT_CREDIT_RANGE'].unique()
 ```
-79
+![79](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/9984c979-176c-47cf-9a72-2b7cbe2e6984)
+
 
 ```
 bins=[0,10,30,40,float('inf')]
@@ -953,27 +1031,32 @@ labels = ['Low','Moderate','High','Extreme']
 app_data['Amt_Credit_Category'] = pd.cut(app_data['AMT_CREDIT_Lakhs'],bins = bins,labels=labels)
 app_data['Amt_Credit_Category'].value_counts()
 ```
-80
+![80](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/a8716195-043d-4f15-a874-933683b157db)
+
 
 ```
 plt.figure(figsize=(12,6))
 sns.countplot(data=app_data,x='Amt_Credit_Category',hue='TARGET')
 plt.show()
 ```
-81
+![81](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/7ed1ae72-82e1-458d-971f-c19778e7520f)
+
 
 ```
 contingency_table = pd.crosstab(app_data['Amt_Credit_Category'],app_data['TARGET'])
 contingency_table
 ```
-82
+![82](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/de3c4588-4b1a-461b-95d1-1327a6c231c1)
+
 
 ```
 chi2_stat,p_value,dof,expected=stats.chi2_contingency(contingency_table)
 print(chi2_stat)
 print(p_value)
 ```
-83
+
+![83](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/f0579c9a-5e81-4516-8095-bc3a5a8fa602)
+
 <p>Based on the results of the chi-squared test, I can conclude that there is a highly statistically significant association between "Loan Amount" and "Payment Difficulty." The small p-value indicates that it is extremely unlikely to observe the observed distribution of payment difficulties across different loan amount categories (or more extreme distributions) if "Loan Amount" and "Payment Difficulty" were independent.</p>
 
 <li>Loan Type & Payment Difficulty:</li>
@@ -986,20 +1069,23 @@ plt.figure(figsize=(12,6))
 sns.countplot(data=app_data,x='NAME_CONTRACT_TYPE',hue='TARGET')
 plt.show()
 ```
-84
+![84](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/222111ae-c1e0-4c13-82f9-5b71d2c937e4)
+
 
 ```
 contingency_table = pd.crosstab(app_data['NAME_CONTRACT_TYPE'],app_data['TARGET'])
 contingency_table
 ```
-85
+![85](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/308667d8-decf-406c-854a-b9c4bc97413a)
+
 
 ```
 chi2_stat,p_value,dof,expected=stats.chi2_contingency(contingency_table)
 print(chi2_stat)
 print(p_value)
 ```
-86
+![86](https://github.com/SushmaRaasi/Bank_Loan_Case_Study/assets/79751402/5f743f11-df6c-4d53-a2d2-72e4da97e3bf)
+
 <p>Based on the results of the chi-squared test, I can conclude that there is a highly statistically significant association between "Loan Type" and "Payment Difficulty."
 The small p-value suggests that it is extremely unlikely to observe the observed distribution of payment difficulties across different loan types (or more extreme distributions) if "Loan Type" and "Payment Difficulty" were independent.
 </p>
