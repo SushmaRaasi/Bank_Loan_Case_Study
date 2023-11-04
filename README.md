@@ -1,15 +1,21 @@
 # Bank_Loan_Case_Study
 
-- [Project Description](#project-Description)
+- [Project Description](#project-description)
 - [Business Understanding](#business-understanding)
-- [Data Understanding](#data-understanding)
+- [DataSet](#dataset)
 - [Business Objectives](#business-objectives)
 - [Approach and Tech Stack Used](#approach-and-tech-stack-used)
 - [Analytics and Insights](#analytics-and-insights)
   - [1) Handling Missing Data](#handling-missing-data)
   - [2) Identify Outliers](#identify-outliers)
   - [3) Analyzing Data Imbalance](#analyzing-data-imbalance)
-
+  - [4) Uni Variant Analysis](#uni-variant-analysis)
+  - [5) Segmented Analysis](#segmented-analysis)
+  - [6) Bi Variant Analysis](#bi-variant-analysis)
+- [Identify Top Correlations for Different Scenarios](#identify-top-correlations-for-different-scenarios)
+- [Hypothetical Testing](#hypothetical-testing)
+- [Conclusion](#conclusion)
+  
 ### Project Description
 <p>This case study aims to give you an idea of applying EDA in a real business scenario. In this case study, apart from applying the techniques that I have learnt in the EDA module, I would like to develop a basic understanding of risk analytics in banking and financial services and understand how data is used to minimize the risk of losing money while lending to customers.</p>
 
@@ -1009,18 +1015,3 @@ The small p-value suggests that it is extremely unlikely to observe the observed
   <li>I am committed to continuous learning and plan to expand my knowledge in data analysis and related fields. In conclusion, this case study has been a pivotal step in my data analysis journey, equipping me with the tools and knowledge needed to tackle complex problems and contribute meaningfully to data-driven decision-making."
 </li>
 </ul>
-
-### Limitations
-<ul>
-  <li>Causality vs. Correlation:While statistical associations and correlations have been identified between certain variables and payment difficulties, it's essential to remember that correlation does not imply causation. Factors influencing loan repayment can be complex and multifaceted, and establishing causality would require more extensive research and data.</li>
-  <li>Socioeconomic Factors: The analysis seems to focus primarily on the internal factors related to loan applications. External socioeconomic factors, such as economic conditions, employment rates, and legislative changes, can also significantly impact loan repayment but may not be considered in this analysis.
-</li>
-  <li>Modeling: This analysis primarily focuses on exploratory data analysis (EDA) and statistical tests. Developing predictive models or risk assessment models would require a separate and more comprehensive analysis, including feature engineering and machine learning techniques.</li>
-</ul>
-
-
-
-
-
-
-
